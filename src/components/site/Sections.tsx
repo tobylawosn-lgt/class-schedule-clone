@@ -18,17 +18,18 @@ export function BookButton({ className, label = "Book Your Session" }: { classNa
   );
 }
 
-export function Photo({ label, className }: { label: string; className?: string }) {
+export function Photo({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
   return (
-    <div
-      className={cn(
-        "flex items-end overflow-hidden rounded-md border border-border bg-surface p-4",
-        className,
-      )}
-      role="img"
-      aria-label={label}
-    >
-      <span className="eyebrow">{label}</span>
+    <div className={cn("overflow-hidden rounded-md border border-border bg-surface", className)}>
+      <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
     </div>
   );
 }
@@ -41,8 +42,11 @@ export function Header() {
           Alex Moreno<span className="text-primary">.</span>
         </a>
         <nav className="flex items-center gap-6">
-          <a href="#schedule" className="hidden text-sm font-semibold text-muted-foreground hover:text-foreground sm:block">Schedule</a>
-          <BookButton label="Book" className="px-5 py-2 text-sm" />
+          <a href="#schedule" className="text-sm font-semibold text-muted-foreground hover:text-foreground">
+            Schedule
+          </a>
+          {/* Sticky MobileBar owns Book on small screens — avoid triple CTAs above the fold */}
+          <BookButton label="Book" className="hidden px-5 py-2 text-sm md:inline-flex" />
         </nav>
       </div>
     </header>
@@ -59,21 +63,40 @@ export function MobileBar() {
 
 export function Hero() {
   return (
-    <section id="top" className="mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-12 md:grid-cols-[1.2fr_1fr] md:items-center md:pb-24 md:pt-20">
-      <div>
-        <p className="eyebrow">Strength & Conditioning · Barcelona</p>
-        <h1 className="mt-5 text-5xl font-extrabold uppercase leading-[0.95] md:text-7xl">
-          Stronger.<br />Consistently.<br /><span className="text-primary">In less time.</span>
-        </h1>
-        <p className="mt-6 max-w-md text-lg text-muted-foreground">
-          Structured 45–60 minute sessions for busy professionals — in the studio or outdoors across the city.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-          <BookButton />
-          <a href="#schedule" className="text-center font-semibold underline-offset-4 hover:underline sm:px-4">View Schedule →</a>
+    <section id="top" className="relative isolate min-h-[min(92svh,720px)] overflow-hidden">
+      <img
+        src="/images/hero-studio.jpg"
+        alt="Coach guiding a client through a strength session in a Barcelona studio"
+        className="absolute inset-0 h-full w-full object-cover"
+        fetchPriority="high"
+        decoding="async"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/35 md:bg-gradient-to-r md:from-background md:via-background/85 md:to-background/25"
+        aria-hidden
+      />
+      {/* pb-28 clears the fixed mobile Book bar so the orange line isn't clipped */}
+      <div className="relative mx-auto flex min-h-[min(92svh,720px)] max-w-6xl flex-col justify-end px-5 pb-28 pt-24 md:justify-center md:pb-24 md:pt-20">
+        <div className="max-w-xl">
+          <p className="eyebrow text-foreground/80">Strength & Conditioning · Barcelona</p>
+          <h1 className="hero-headline mt-5 font-extrabold uppercase">
+            Stronger.<br />Consistently.<br /><span className="text-primary">In less time.</span>
+          </h1>
+          <p className="mt-5 max-w-md text-base text-muted-foreground sm:mt-6 sm:text-lg">
+            Structured 45–60 minute sessions for busy professionals — in the studio or outdoors across the city.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
+            {/* Desktop: primary Book here. Mobile: sticky bar is the persistent Book. */}
+            <BookButton className="hidden sm:inline-flex" />
+            <a
+              href="#schedule"
+              className="font-semibold underline-offset-4 hover:underline sm:px-4"
+            >
+              View Schedule →
+            </a>
+          </div>
         </div>
       </div>
-      <Photo label="Alex coaching — studio" className="aspect-[4/5]" />
     </section>
   );
 }
@@ -87,7 +110,11 @@ export function Trust() {
   return (
     <section className="mx-auto max-w-6xl px-5 py-16 md:py-24">
       <div className="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-center">
-        <Photo label="Portrait — Alex Moreno" className="aspect-square" />
+        <Photo
+          src="/images/coach-portrait.jpg"
+          alt="Alex Moreno, strength and conditioning coach, coaching with barbells"
+          className="aspect-square"
+        />
         <div>
           <p className="eyebrow">Your coach</p>
           <h2 className="mt-3 text-4xl font-extrabold md:text-5xl">Alex Moreno</h2>
@@ -103,9 +130,21 @@ export function Trust() {
         </div>
       </div>
       <div className="mt-10 grid gap-3 sm:grid-cols-3">
-        <Photo label="Studio — Eixample" className="aspect-[4/3]" />
-        <Photo label="Outdoor — Barceloneta" className="aspect-[4/3]" />
-        <Photo label="Outdoor — Ciutadella" className="aspect-[4/3]" />
+        <Photo
+          src="/images/location-studio.jpg"
+          alt="Gym floor in Eixample — racks, plates, and open training space"
+          className="aspect-[4/3]"
+        />
+        <Photo
+          src="/images/location-beach.jpg"
+          alt="Barceloneta coastline used for outdoor conditioning sessions"
+          className="aspect-[4/3]"
+        />
+        <Photo
+          src="/images/location-park.jpg"
+          alt="Tree-lined paths at Parc de la Ciutadella for outdoor training"
+          className="aspect-[4/3]"
+        />
       </div>
     </section>
   );
@@ -132,10 +171,14 @@ export function Proof() {
             </figure>
           ))}
         </div>
-        <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
-          {["Studio group", "Beach session", "Park circuit", "Barbell class"].map((l) => (
-            <Photo key={l} label={l} className="aspect-square" />
-          ))}
+        <div className="mt-8 overflow-hidden rounded-md border border-border">
+          <img
+            src="/images/session-outdoor.jpg"
+            alt="Athletes training outdoors with kettlebells during a group conditioning session"
+            className="aspect-[21/9] w-full object-cover md:aspect-[3/1]"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
     </section>

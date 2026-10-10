@@ -15,7 +15,7 @@ Check a box when that item is done and verified in the browser (desktop and mobi
 
 **Progress**
 
-- [ ] Phase 1 — Photos and mobile hero
+- [x] Phase 1 — Photos and mobile hero
 - [ ] Phase 2 — Schedule as “this week”
 - [ ] Phase 3 — How it works, price, real contact
 - [ ] Phase 4 — Nav, next-slot CTA, cut filler
@@ -56,31 +56,31 @@ Highest visual impact. The site should stop looking like a wireframe, and the fi
 
 ### 1.1 Real photography
 
-- [ ] Collect 6–8 photos: coach portrait, studio coaching, outdoor (beach / park / Montjuïc), 1–2 community/session shots
-- [ ] Replace hero `Photo` placeholder (“Alex coaching — studio”)
-- [ ] Replace coach portrait placeholder
-- [ ] Replace location tiles (Eixample / Barceloneta / Ciutadella)
-- [ ] Replace or **remove** the four proof squares (Studio group, Beach session, Park circuit, Barbell class) — keep only if the images are real
-- [ ] Add meaningful `alt` text (who / where / what’s happening), not just the old eyebrow labels
-- [ ] Compress images for web (don’t ship huge originals)
-- [ ] Decide hero treatment: keep two-column, **or** full-bleed photo with dark gradient and type on top (prefer full-bleed once photos exist)
+- [x] Collect 6–8 photos: coach portrait, studio coaching, outdoor (beach / park / Montjuïc), 1–2 community/session shots
+- [x] Replace hero `Photo` placeholder (“Alex coaching — studio”)
+- [x] Replace coach portrait placeholder
+- [x] Replace location tiles (Eixample / Barceloneta / Ciutadella)
+- [x] Replace or **remove** the four proof squares (Studio group, Beach session, Park circuit, Barbell class) — keep only if the images are real
+- [x] Add meaningful `alt` text (who / where / what’s happening), not just the old eyebrow labels
+- [x] Compress images for web (don’t ship huge originals)
+- [x] Decide hero treatment: keep two-column, **or** full-bleed photo with dark gradient and type on top (prefer full-bleed once photos exist)
 
 ### 1.2 Mobile headline and first screen
 
-- [ ] Headline `Stronger. Consistently. In less time.` fits a ~390px viewport with no horizontal overflow
-- [ ] Use fluid / stepped type so `text-5xl` uppercase is not clipping
-- [ ] Third line wraps or sizes down before it runs off-screen
-- [ ] First mobile viewport is not three identical Book CTAs (header + hero + sticky bar)
-- [ ] Keep **one** strong primary Book on the first screen; sticky bar can stay as the persistent action
-- [ ] Header Book stays smaller / quieter than the sticky bar (or hide header Book on small screens if the bar is enough)
-- [ ] “View Schedule” remains easy to reach without competing with Book
+- [x] Headline `Stronger. Consistently. In less time.` fits a ~390px viewport with no horizontal overflow
+- [x] Use fluid / stepped type so `text-5xl` uppercase is not clipping
+- [x] Third line wraps or sizes down before it runs off-screen
+- [x] First mobile viewport is not three identical Book CTAs (header + hero + sticky bar)
+- [x] Keep **one** strong primary Book on the first screen; sticky bar can stay as the persistent action
+- [x] Header Book stays smaller / quieter than the sticky bar (or hide header Book on small screens if the bar is enough)
+- [x] “View Schedule” remains easy to reach without competing with Book
 
 ### 1.3 Phase 1 verification
 
-- [ ] Phone: hero type fully visible; no sideways scroll
-- [ ] Phone: not looking at stacked duplicate orange buttons above the fold
-- [ ] Desktop: hero still reads as editorial, not a squeezed mobile layout
-- [ ] Every remaining image tile is a real photo or has been deleted
+- [x] Phone: hero type fully visible; no sideways scroll
+- [x] Phone: not looking at stacked duplicate orange buttons above the fold
+- [x] Desktop: hero still reads as editorial, not a squeezed mobile layout
+- [x] Every remaining image tile is a real photo or has been deleted
 
 ---
 
